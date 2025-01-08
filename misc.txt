@@ -1,0 +1,26 @@
+DM
+
+"Good afternoon, everyone. Today, we’ll present our study on Predicting Health Outcomes Using Nutritional Intake, Socioeconomic Factors, and Sleep Data. The goal is to develop a disease prediction model using the NHANES 2013-2014 dataset, incorporating methods like PCA, association rule mining, clustering, and classification.
+
+We aim to improve health predictions, personalize care by categorizing individuals into risk groups, and support public health initiatives by identifying trends and risk factors. Through data-driven insights, we uncover hidden relationships among health factors to optimize healthcare outcomes.
+
+The dataset includes diverse variables — demographics like age, gender, and income; dietary data on nutrient intake and food frequency; examination metrics like BMI and blood pressure; lab results like cholesterol and glucose levels; and lifestyle habits like smoking, alcohol use, and physical activity.
+
+----
+
+"Our objective was to classify the target variable, lifestyle diseases, using a Random Forest classifier. 
+
+We faced two major challenges: first, addressing class imbalance, as the dataset had unequal representation across classes; and second, evaluating the model’s performance fairly across all classes.
+
+For Model 1, the baseline Random Forest was trained without handling class imbalance. It achieved an accuracy of 65%, but the classification report and confusion matrix showed poor recall for minority classes, with predictions heavily biased toward the majority class.
+
+For Model 2, we introduced class balancing using class_weight='balanced'. While the accuracy remained at 65%, we observed slight improvements in recall and F1-scores for minority classes. Interestingly, the top predictors shifted slightly, with Vitamin B6 intake, saturated fat intake, and HDL cholesterol becoming more important.
+
+ROC Curves:
+Next, we compared the ROC curves for both models. For Model 1, the curves were irregular, and AUC values were low for minority classes, indicating inconsistent performance. Model 2 showed smoother and more consistent curves, with higher AUC values for underrepresented classes, demonstrating improved predictive power after addressing class imbalance.
+
+Confusion Matrix:
+Finally, the confusion matrices revealed that both models struggled with minority classes, but Model 2 showed a slight reduction in misclassifications. Predictions for the majority class remained strong, but further optimization is needed to improve predictions for smaller classes.
+
+Conclusion:
+In summary, the Random Forest classifier performed reasonably well for the majority class but struggled with minority classes due to class imbalance. While introducing class balancing improved recall and AUC for underrepresented groups, significant misclassifications remain. Future steps could include fine-tuning hyperparameters or experimenting with alternative models such as Gradient Boosting or Neural Networks to enhance predictive performance and fairness across all classes.
